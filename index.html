@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMC</title>
+</head>
+<body>
+    <h1>IMC del usuario</h1>
+    <hr>
+
+    <script>
+        // Algoritmo Calcular_IMC
+
+        // Definir variables
+        let estatura, peso, IMC, peso_ideal;
+
+        // Ingresar estatura
+        estatura = parseFloat(prompt("Ingrese su estatura en metros: "));
+
+        // Ingresar peso
+        peso = parseFloat(prompt("Ingrese su peso en kilogramos: "));
+        
+        // Validar estatura y peso sino se digita nada en estas variables
+        if (isNaN(estatura) || estatura === null || estatura === "") {
+            alert("Error: Debe ingresar su estatura.");
+        } else if (isNaN(peso) || peso === null || peso === "") {
+            alert("Error: Debe ingresar el peso.");
+        } else {
+
+            // Calcular IMC
+            IMC = peso / (estatura * estatura);
+    
+            // Mostrar IMC
+            document.write("Su IMC es: " + IMC.toFixed(2) + "<br>");
+    
+            // Clasificar IMC
+            if (IMC < 18) {
+                document.write("Clasificación: Desnutrición" + "<br>");
+            } else if (IMC >= 18 && IMC <= 24.9) {
+                document.write("Clasificación: Normal" + "<br>");
+            } else if (IMC >= 25 && IMC <= 26.9) {
+                document.write("Clasificación: Sobrepeso" + "<br>");
+            } else if (IMC > 26.9 && IMC <= 29.9) {
+                document.write("Clasificación: Obesidad grado I. Riesgo relativo alto para desarrollar enfermedades cardiovasculares" + "<br>");
+            } else if (IMC >= 30 && IMC <= 39.9) {
+                document.write("Clasificación: Obesidad grado II. Riesgo relativo muy alto para el desarrollo de enfermedades cardiovasculares" + "<br>");
+            } else {
+                document.write("Clasificación: Obesidad grado III Extrema o Mórbida. Riesgo relativo extremadamente alto para el desarrollo de enfermedades cardiovasculares" + "<br>");
+            }
+    
+            // Calcular peso ideal
+            peso_ideal = (estatura * 100) - 105;
+    
+            // Mostrar peso ideal
+            document.write("Su peso ideal debería ser: " + peso_ideal + " kilogramos " + "<br>");
+    
+            // Mostrar mensaje según el peso
+            if (peso > peso_ideal) {
+                document.write("Debe rebajar " + (peso - peso_ideal) + " kilogramos para alcanzar su peso ideal." + "<br>");
+            } else if (peso < peso_ideal) {
+                document.write("Debe aumentar " + (peso_ideal - peso) + " kilogramos para alcanzar su peso ideal." + "<br>");
+            } else {
+                document.write("Su peso es ideal. ¡Felicidades!" + "<br>");
+            }
+        }
+
+    </script>
+</body>
+</html>
