@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio personas</title>
+</head>
+<body>
+    <!--
+    Realizar un programa que solicite capturar a un número de personas los siguientes datos: edad y sexo.
+    Al final muestre como resultado los siguientes informes:
+    --- Suma de todas la edades de los hombres 
+    --- Multiplicación de todas las edades de las mujeres 
+    --- Cantidad de hombres registrados
+    --- Cantidad de mujeres registradas
+    -->
+
+    <h1>Personas</h1>
+    <hr>
+
+    <script>
+
+        // Definir variables
+        let numeroPersona, edad, sexo;
+        let sumarEdadesHombres = 0; 
+        let multiplicaEdadesMujeres = 1;
+        let cantidadHombresRegistrados = 0; 
+        let cantidadMujeresRegistradas = 0;
+
+        // Ingresar numero de personas
+        numeroPersona = parseInt(prompt("Ingrese el numero de personas: "));
+
+        if (isNaN(numeroPersona) || numeroPersona === null || numeroPersona === "" || numeroPersona <= 0) {
+            alert("Error este dato es incorrecto, debe ser un numero entero");
+        } else {
+            // Crear el ciclo para recorrer y presentar la información
+            for (let i = 1; i <= numeroPersona; i++) {
+                edad = parseInt(prompt("Digite la edad de la persona: "));
+                sexo = prompt("Digite el sexo de la persona: ");
+    
+                if (sexo == "hombre") {
+                    sumarEdadesHombres = sumarEdadesHombres + edad;
+                    cantidadHombresRegistrados = cantidadHombresRegistrados + 1;
+                } else if (sexo == "mujer") {
+                    multiplicaEdadesMujeres = multiplicaEdadesMujeres * edad;
+                    cantidadMujeresRegistradas = cantidadMujeresRegistradas + 1;
+                }
+            }
+    
+            if (cantidadMujeresRegistradas == 0) {
+                multiplicaEdadesMujeres = 0;
+            }
+    
+            // Mostrar resultados
+            document.write("<h2>La sumatoria de las edades de los hombres es: " + sumarEdadesHombres + "</h2>");
+            document.write("<h2>La multiplicacion de las edades de las mujeres es: " + multiplicaEdadesMujeres + "</h2>");
+            document.write("<h2>Cantidad de hombres registrados es: " + cantidadHombresRegistrados + "</h2>");
+            document.write("<h2>Cantidad de mujeres registradas: " + cantidadMujeresRegistradas + "</h2>");
+        }
+  
+    </script>
+
+</body>
+</html>
