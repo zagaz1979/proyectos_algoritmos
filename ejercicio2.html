@@ -6,7 +6,7 @@
     <title>Ejercicio personas</title>
 </head>
 <body>
-    <h1>Personas</h1>
+    <h1>Informe de Personas</h1>
     <hr>
 
     <script>
@@ -27,7 +27,7 @@
             // Crear el ciclo para recorrer y presentar la información
             for (let i = 1; i <= numeroPersona; i++) {
                 edad = parseInt(prompt("Digite la edad de la persona: "));
-                sexo = prompt("Digite el sexo de la persona: ");
+                sexo = prompt("Digite el sexo de la persona (hombre/mujer): ").toLowerCase();
     
                 if (sexo == "hombre") {
                     sumarEdadesHombres = sumarEdadesHombres + edad;
